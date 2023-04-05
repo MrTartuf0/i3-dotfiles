@@ -46,6 +46,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+#Start PolyBar
+exec_always --no-startup-id polybar
+
+
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -108,14 +113,14 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 
 # Program execution shortcuts
 bindsym $mod+e exec nautilus
 bindsym $mod+Shift+s exec flameshot gui
 bindsym --release $mod+Shift+c exec xcolor -s
-exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/i3-dotfiles/backgrounds/trentino.jpg 
+exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/i3-dotfiles/backgrounds/trentino.jpg & slimbookbattery --minimize & xrandr --output eDP-1 --mode 1920x1080 --rate 59.93
 
 
 # toggle tiling / floating
@@ -203,6 +208,3 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
