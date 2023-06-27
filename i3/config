@@ -65,6 +65,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+default_orientation vertical #start in opposite orientation from your monitor
+for_window [class=".*"] split toggle #toggles split at each new window
+
 # start a terminal
 bindsym $mod+q exec alacritty
 
@@ -117,7 +120,7 @@ bindsym $mod+f fullscreen toggle
 #bindsym $mod+w layout tabbed
 
 # Program execution shortcuts
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec dolphin
 bindsym $mod+Shift+s exec flameshot gui
 bindsym --release $mod+Shift+c exec xcolor -s
 exec --no-startup-id /usr/bin/feh --bg-fill ~/Downloads/i3-dotfiles/backgrounds/trentino.jpg & slimbookbattery --minimize & xrandr --output eDP-1 --mode 1920x1080 --rate 59.93
